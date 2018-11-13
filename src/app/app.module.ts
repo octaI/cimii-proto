@@ -11,13 +11,17 @@ import { MatNativeDateModule } from '@angular/material';
 import { AppMaterialModule } from './app.material.module';
 import {SummaryComponent} from './summary/summary.component';
 import {ConfigurationComponent} from './configuration/configuration.component';
+import {EventsComponent} from './events/events.component';
+import {AlertsComponent} from './alerts/alerts.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     SummaryComponent,
-    ConfigurationComponent
+    ConfigurationComponent,
+    EventsComponent,
+    AlertsComponent
   ],
   imports: [
     BrowserModule,
