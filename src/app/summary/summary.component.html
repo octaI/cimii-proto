@@ -1,3 +1,16 @@
-<p>
-  Summaries
-</p>
+<mat-grid-list cols="4" rowHeight="100px">
+  <mat-grid-tile
+    *ngFor="let tile of tiles"
+    [colspan]="tile.cols"
+    [rowspan]="tile.rows"
+    [style.background]="tile.color">
+  <div>
+    <mat-card class="cardPadding summarySection" >{{tile.grid_title}}</mat-card>
+    <mat-card class="cardPadding" *ngFor="let param_name of tile.parameter_names; let i = index" >
+      {{param_name + ':' + tile.parameter_values[i]}}
+
+    </mat-card>
+  </div>
+
+  </mat-grid-tile>
+</mat-grid-list>

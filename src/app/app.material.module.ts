@@ -43,6 +43,10 @@ import {
 
 @NgModule({
   exports: [
+    MatTableModule,
+    MatDividerModule,
+    MatCardModule,
+    MatGridListModule,
     MatIconModule,
     MatToolbarModule,
     MatSidenavModule,

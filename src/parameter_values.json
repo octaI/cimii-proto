@@ -1,0 +1,16 @@
+{
+  "Suelo": {
+    "parameter_names": ["pH", "Potasio",
+      "Azufre",
+      "Magnesio",
+      "Calcio",
+      "Fosforo",
+      "Nitrogeno"
+    ],
+    "parameter_values": [100, 50,10,10,50,30,20]
+  },
+  "Ambiente": {
+    "parameter_names":["Luz","Temperatura","Oxigeno"],
+    "parameter_values":[1000,30,50]
+  }
+}
