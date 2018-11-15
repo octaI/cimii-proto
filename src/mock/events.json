@@ -1,0 +1,5 @@
+{
+  "events": [
+    {"date": "2018-11-05 15:00:12", "level": "INFO", "component": "Sensor2", "message": "Critic level"}
+  ]
+}

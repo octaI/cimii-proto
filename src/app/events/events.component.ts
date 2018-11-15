@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {MatTableDataSource} from '@angular/material';
+
+const faker = require('faker');
+
+const MOCK_EVENTS = require('../../mock/events.json');
 
 @Component({
   selector: 'app-events',
@@ -6,10 +11,22 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./events.component.scss']
 })
 export class EventsComponent implements OnInit {
+  events: any[] = MOCK_EVENTS['events'];
+  displayedColumns: string[] = ['time', 'level', 'component', 'message'];
+  dataSource = new MatTableDataSource(this.events);
 
-  constructor() { }
+  addRandomEvent(): void {
+    this.events.unshift({
+      date: new Date().toISOString().split('.')[0],
+      level: faker.random.arrayElement(['INFO', 'WARN', 'ERROR', 'CRITICAL']),
+      component: `${faker.random.arrayElement(['Sensor', 'Actuator'])}${faker.random.arrayElement([1,2,3,4,5])}`,
+      message: faker.fake('{{lorem.sentence}}')
+    });
+    this.dataSource = new MatTableDataSource(this.events);
+  }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    setInterval(() => this.addRandomEvent(), 2000);
   }
 
 }
