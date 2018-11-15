@@ -1,0 +1,27 @@
+.example-config {
+  display: flex;
+  flex-direction: column;
+}
+
+.config-listitem{
+  display: flex;
+  flex-direction: row;
+}
+
+.mat-fab-bottom-right{
+  position: absolute;
+  left: 50%;
+  right: 50%;
+  bottom: 100px;
+}
+
+.mat-dialog-container-config{
+  display: flex;
+  flex-direction: row;
+}
+
+
+
+.example-config > * {
+  width: 100%;
+}

@@ -1,3 +1,15 @@
-<p>
-  configuration works!
-</p>
+<div class="example-config">
+  <mat-list *ngFor="let config of greenhouse_configs">
+    <div class="config-listitem">
+      <mat-list-item>{{config.name}}</mat-list-item><button mat-raised-button color="accent" matTooltip="Editar Configuracion" >Editar</button>
+    </div>
+    <mat-divider></mat-divider>
+  </mat-list>
+
+</div>
+
+<button mat-fab color="warn" class="mat-fab mat-fab-bottom-right" matTooltip="Agregar una Configuracion" (click)="openDialog()">
+  <mat-icon>add</mat-icon>
+</button>
+
+

@@ -3,7 +3,10 @@ import {ScrollingModule} from '@angular/cdk/scrolling';
 import {CdkTableModule} from '@angular/cdk/table';
 import {CdkTreeModule} from '@angular/cdk/tree';
 import {NgModule} from '@angular/core';
+import {MatSelectModule} from '@angular/material/select';
 import {
+  MatOptionModule,
+  MatFormFieldModule,
   MatAutocompleteModule,
   MatBadgeModule,
   MatBottomSheetModule,
@@ -27,7 +30,6 @@ import {
   MatProgressSpinnerModule,
   MatRadioModule,
   MatRippleModule,
-  MatSelectModule,
   MatSidenavModule,
   MatSliderModule,
   MatSlideToggleModule,
@@ -43,6 +45,13 @@ import {
 
 @NgModule({
   exports: [
+    ScrollingModule,
+    MatDialogModule,
+    MatTooltipModule,
+    MatInputModule,
+    MatSelectModule,
+    MatOptionModule,
+    MatFormFieldModule,
     MatTableModule,
     MatDividerModule,
     MatCardModule,
