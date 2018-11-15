@@ -1,0 +1,23 @@
+<h1 mat-dialog-title>Editar Configuracion</h1>
+<mat-divider></mat-divider>
+<div mat-dialog-content class="mat-dialog-container-config mat-typography">
+  <p mat-dialog-title>{{Existing_data.name}}</p>
+  <div class="mat-dialog-container-config" *ngFor="let max_val of Existing_data.soil_maximum_values;let i = index" >
+    <p>{{parameters[i]}}</p>
+    <mat-form-field>
+      <input matInput placeholder="Valor Maximo" value={{max_val}}>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Valor Mínimo" value="{{Existing_data.soil_minimum_values[i]}}">
+    </mat-form-field>
+  </div>
+  <div class="mat-dialog-container-config" *ngFor="let max_val of Existing_data.environment_maximum_values;let i = index" >
+    <p>{{environment_parameters[i]}}</p>
+    <mat-form-field>
+      <input matInput placeholder="Valor Maximo" value={{max_val}}>
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput placeholder="Valor Mínimo" value="{{Existing_data.environment_minimum_values[i]}}">
+    </mat-form-field>
+  </div>
+</div>

@@ -10,7 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatNativeDateModule } from '@angular/material';
 import { AppMaterialModule } from './app.material.module';
 import {SummaryComponent} from './summary/summary.component';
-import {ConfigurationComponent, DialogDataExampleDialog} from './configuration/configuration.component';
+import {ConfigurationComponent, DialogDataEditDialog, DialogDataExampleDialog} from './configuration/configuration.component';
 import {EventsComponent} from './events/events.component';
 import {AlertsComponent} from './alerts/alerts.component';
 
@@ -24,6 +24,7 @@ import {AlertsComponent} from './alerts/alerts.component';
     EventsComponent,
     AlertsComponent,
     DialogDataExampleDialog,
+    DialogDataEditDialog,
   ],
   imports: [
     BrowserModule,
@@ -39,6 +40,6 @@ import {AlertsComponent} from './alerts/alerts.component';
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [DialogDataExampleDialog]
+  entryComponents: [DialogDataExampleDialog,DialogDataEditDialog]
 })
 export class AppModule { }

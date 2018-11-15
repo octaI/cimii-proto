@@ -1,7 +1,7 @@
 import {Component, Inject, OnInit} from '@angular/core';
 
 import {DataserviceService} from '../services/dataservice.service';
-import {MAT_DIALOG_DATA, MatDialog} from '@angular/material';
+import {MAT_DIALOG_DATA, MatDialog, MatDialogConfig} from '@angular/material';
 
 export interface Configuration {
   name: string;
@@ -11,9 +11,7 @@ export interface Configuration {
   environment_maximum_values: Array<number>;
 }
 
-export interface DialogData {
-  animal: 'panda' | 'unicorn' | 'lion';
-}
+
 
 @Component({
   selector: 'app-configuration',
@@ -32,30 +30,29 @@ export class ConfigurationComponent implements OnInit {
     this.populateConfigs(received_data);
   }
 
-   openDialog() {
-    this.dialog.open(DialogDataExampleDialog, {
-      data: {
-        animal: 'unicorn'
-      }
-    });
+   openAddDialog() {
+    this.dialog.open(DialogDataExampleDialog
+    );
   }
-
+  editConfig(ConfToEdit) {
+    const dialogConfig = new  MatDialogConfig();
+    dialogConfig.data = ConfToEdit;
+    this.dialog.open(DialogDataEditDialog, dialogConfig);
+  }
 
   populateConfigs(data) {
     for (const elements in data) {
       this.greenhouse_configs.push({
         name: data[elements].name,
-        soil_minimum_values: data[elements].soil_minimum_values,
-        soil_maximum_values: data[elements].soil_maximum_values,
-        environment_minimum_values: data[elements].environment_minimum_values
-        , environment_maximum_values: data[elements].environment_maximum_values
+        soil_minimum_values: data[elements].expected_soil_minimum_values,
+        soil_maximum_values: data[elements].expected_soil_maximum_values,
+        environment_minimum_values: data[elements].expected_environment_minimum_values
+        , environment_maximum_values: data[elements].expected_environment_maximum_values
       });
 
     }
   }
   ngOnInit() {
-
-
   }
 }
 
@@ -65,7 +62,7 @@ export class ConfigurationComponent implements OnInit {
   templateUrl: 'dialog-overview-example.html',
 })
 export class DialogDataExampleDialog {
-  constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) {}
+  constructor() {}
 
   parameters: string[] = ['pH', 'Potasio',
     'Azufre',
@@ -76,4 +73,31 @@ export class DialogDataExampleDialog {
     'Luz',
     'Temperatura',
     'Oxigeno'];
+}
+
+@Component({
+  selector: 'dialog-config-edit-dialog',
+  templateUrl: 'dialog-edit-example.html',
+})
+export class DialogDataEditDialog  implements OnInit {
+  constructor(@Inject(MAT_DIALOG_DATA) public Configdata: Configuration) {}
+  Existing_data: Configuration;
+  parameters: string[] = ['pH', 'Potasio',
+    'Azufre',
+    'Magnesio',
+    'Calcio',
+    'Fosforo',
+    'Nitrogeno',
+    'Luz',
+    'Temperatura',
+    'Oxigeno'];
+
+  environment_parameters: string[] = [ 'Luz',
+    'Temperatura',
+    'Oxigeno'];
+
+  ngOnInit() {
+    this.Existing_data = this.Configdata;
+    console.log(this.Configdata)
+  }
 }

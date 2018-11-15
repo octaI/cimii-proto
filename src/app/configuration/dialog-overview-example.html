@@ -1,6 +1,6 @@
 <h1 mat-dialog-title>Agregar Configuracion Nueva</h1>
 <mat-divider></mat-divider>
-<div mat-dialog-content class="mat-dialog-container-config "  >
+<div mat-dialog-content class="mat-dialog-container-config mat-typography"  >
  <div class="mat-dialog-container-config" *ngFor="let param of parameters" >
    <p mat-dialog-title>{{param}}</p>
      <mat-form-field>
@@ -10,5 +10,6 @@
        <input matInput placeholder="Valor Máximo" >
      </mat-form-field>
  </div>
+
 </div>
 
