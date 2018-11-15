@@ -1,7 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {MatTableDataSource} from '@angular/material';
-
-const faker = require('faker');
+import * as faker from 'faker';
 
 const MOCK_EVENTS = require('../../mock/events.json');
 
@@ -19,8 +18,8 @@ export class EventsComponent implements OnInit {
     this.events.unshift({
       date: new Date().toISOString().split('.')[0],
       level: faker.random.arrayElement(['INFO', 'WARN', 'ERROR', 'CRITICAL']),
-      component: `${faker.random.arrayElement(['Sensor', 'Actuator'])}${faker.random.arrayElement([1,2,3,4,5])}`,
-      message: faker.fake('{{lorem.sentence}}')
+      component: `${faker.random.arrayElement(['Sensor', 'Actuator'])}${faker.random.arrayElement([1, 2, 3, 4, 5])}`,
+      message: faker.lorem.sentence()
     });
     this.dataSource = new MatTableDataSource(this.events);
   }
