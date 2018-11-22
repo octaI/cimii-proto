@@ -1,0 +1,19 @@
+.report-graph{
+  display: flex;
+  height:50%;
+  width: 50%;
+  flex-direction: row;
+  padding-bottom: 15px;
+
+}
+
+.container-graph-div{
+  overflow: scroll;
+}
+
+.mat-fab-bottom-right-report{
+  position: fixed;
+  left: 90%;
+  right: 0%;
+  bottom: 100px;
+}

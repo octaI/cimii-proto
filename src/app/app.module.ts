@@ -13,6 +13,8 @@ import {SummaryComponent} from './summary/summary.component';
 import {ConfigurationComponent, DialogDataEditDialog, DialogDataExampleDialog} from './configuration/configuration.component';
 import {EventsComponent} from './events/events.component';
 import {AlertsComponent} from './alerts/alerts.component';
+import { ReportComponent } from './report/report.component';
+import {ChartsModule} from 'ng2-charts';
 
 
 @NgModule({
@@ -25,6 +27,7 @@ import {AlertsComponent} from './alerts/alerts.component';
     AlertsComponent,
     DialogDataExampleDialog,
     DialogDataEditDialog,
+    ReportComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,6 +40,7 @@ import {AlertsComponent} from './alerts/alerts.component';
     AppMaterialModule,
     MatNativeDateModule,
     ReactiveFormsModule,
+    ChartsModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

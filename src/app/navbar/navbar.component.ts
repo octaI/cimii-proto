@@ -19,7 +19,8 @@ export class NavbarComponent implements OnDestroy {
     {name: 'Summary', icon: 'assignment', route: '/summary'},
     {name: 'Configuration', icon: 'build', route: '/configuration'},
     {name: 'Events', icon: 'receipt', route: '/events'},
-    {name: 'Alerts', icon: 'notification_important', route: '/alerts'}
+    {name: 'Alerts', icon: 'notification_important', route: '/alerts'},
+    {name: 'Reports', icon: 'assessment', route: '/reports'}
   ];
 
   fillerContent = Array.from({length: 50}, () => `Content`);

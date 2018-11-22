@@ -2,7 +2,14 @@
 /* You can add global styles to this file, and also import other style files */
 
 
+@import "~@angular/material/prebuilt-themes/purple-green.css";
+@include mat-core();
 
+$greenhouse-app-primary: mat-palette($mat-green,800,A100,A300);
+$greenhouse-app-secondary: mat-palette($mat-light-blue,A100,A200,A400);
+$greenhouse-app-theme: mat-dark-theme($greenhouse-app-primary,$greenhouse-app-secondary);
+
+@include angular-material-theme($greenhouse-app-theme);
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

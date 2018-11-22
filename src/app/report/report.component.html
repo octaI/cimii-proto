@@ -1,0 +1,55 @@
+<div class="container-graph-div">
+
+
+<div class="report-graph">
+    <canvas baseChart
+            [datasets]="barChartData"
+            [labels]="barChartLabels"
+            [options]="barChartOptions"
+            [legend]="barChartLegend"
+            [chartType]="barChartType">
+    </canvas>
+  <canvas baseChart
+          [data]="doughnutChartData2"
+          [labels]="doughnutChartLabels2"
+          [chartType]="doughnutChartType"></canvas>
+  </div>
+  <mat-divider></mat-divider>
+  <mat-divider></mat-divider>
+  <div  class="report-graph">
+    <canvas baseChart
+            [data]="doughnutChartData"
+            [labels]="doughnutChartLabels"
+            [chartType]="doughnutChartType"></canvas>
+
+
+    <canvas baseChart
+            [datasets]="radarChartData"
+            [labels]="radarChartLabels"
+            [chartType]="radarChartType"
+            [options]="radarChartOptions"
+    ></canvas>
+  </div>
+
+  <mat-divider></mat-divider>
+  <mat-divider></mat-divider>
+  <div  class="report-graph">
+    <canvas baseChart
+            [datasets]="barChartData2"
+            [labels]="barChartLabels2"
+            [chartType]="barChartType"
+            [options]="barChartOptions"
+    ></canvas>
+  </div>
+  <div  class="report-graph">
+  </div>
+
+  <button mat-fab color="accent" class="mat-fab mat-fab-bottom-right-report" matTooltip="Descargar en formato PDF">
+    <mat-icon>arrow_downward</mat-icon>
+  </button>
+</div>
+
+
+
+
+
