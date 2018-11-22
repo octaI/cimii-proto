@@ -15,6 +15,7 @@ import {EventsComponent} from './events/events.component';
 import {AlertsComponent} from './alerts/alerts.component';
 import { ReportComponent } from './report/report.component';
 import {ChartsModule} from 'ng2-charts';
+import {DialogDataExampleDialogComponent} from './summary/summary_dialog/summary_dialog.component';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import {ChartsModule} from 'ng2-charts';
     DialogDataExampleDialog,
     DialogDataEditDialog,
     ReportComponent,
+    DialogDataExampleDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -44,6 +46,6 @@ import {ChartsModule} from 'ng2-charts';
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [DialogDataExampleDialog,DialogDataEditDialog]
+  entryComponents: [DialogDataExampleDialog, DialogDataEditDialog, DialogDataExampleDialogComponent]
 })
 export class AppModule { }

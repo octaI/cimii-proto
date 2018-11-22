@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
   }
 
   openAlertTimeout() {
-    setTimeout(() => this.openAlert(), faker.random.number({min: 10000, max: 20000}));
+    setTimeout(() => this.openAlert(), faker.random.number({min: 2000, max: 20000}));
   }
 
   openAlert() {

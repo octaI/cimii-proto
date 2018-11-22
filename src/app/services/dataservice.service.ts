@@ -4,10 +4,6 @@ import {Configuration} from '../configuration/configuration.component';
 const mock_data = require('../../parameter_values.json');
 
 
-@Injectable({
-  providedIn: 'root'
-})
-
 export class ParameterSet implements OnInit {
   parameter_values: Array<number>;
   parameter_names: Array<string>;
@@ -19,19 +15,19 @@ export class ParameterSet implements OnInit {
   }
 }
 
+@Injectable({
+  providedIn: 'root'
+})
 export class DataserviceService {
-  alerts: string[] = [];
-  onAddAlert: any;
+  public alerts: string[] = [];
   constructor() {
-    this.onAddAlert = (alert) => {};
   }
 
-  static getConfigurations(): Configuration {
-    const required_info = mock_data.Configurations;
-    return required_info;
+  getConfigurations(): Configuration {
+    return mock_data.Configurations;
   }
 
-  static getParameterSet(name: string): ParameterSet {
+  getParameterSet(name: string): ParameterSet {
     const required_set = new ParameterSet();
     required_set.parameter_names = mock_data[name].parameter_names;
     required_set.parameter_values = mock_data[name].parameter_values;
@@ -39,10 +35,10 @@ export class DataserviceService {
   }
 
   addAlert(message: string): void {
-    this.onAddAlert(message);
+    this.alerts.push(message);
   }
 
-  onAddAlertCallBack(callBack: (alert) => void) {
-    this.onAddAlert = callBack;
+  getAlerts(): string[] {
+    return this.alerts;
   }
 }

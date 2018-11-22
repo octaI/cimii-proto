@@ -2,6 +2,7 @@ import {Component, Inject, OnInit} from '@angular/core';
 
 import {DataserviceService} from '../services/dataservice.service';
 import {MAT_DIALOG_DATA, MatDialog, MatDialogConfig} from '@angular/material';
+import {element} from 'protractor';
 
 export interface Configuration {
   name: string;
@@ -17,16 +18,15 @@ export interface Configuration {
   selector: 'app-configuration',
   templateUrl: './configuration.component.html',
   styleUrls: ['./configuration.component.scss'],
-  providers: [DataserviceService]
+  providers: []
 })
 export class ConfigurationComponent implements OnInit {
-
 
   greenhouse_configs: Configuration[] = [
   ];
 
-  constructor(private dataservice: DataserviceService, public dialog: MatDialog) {
-    const  received_data = DataserviceService.getConfigurations();
+  constructor(private dataService: DataserviceService, public dialog: MatDialog) {
+    const received_data = dataService.getConfigurations();
     this.populateConfigs(received_data);
   }
 
@@ -40,17 +40,16 @@ export class ConfigurationComponent implements OnInit {
     this.dialog.open(DialogDataEditDialog, dialogConfig);
   }
 
-  populateConfigs(data) {
-    for (const elements in data) {
+  populateConfigs(data: Configuration) {
+    Object.values(data).forEach((config) => {
       this.greenhouse_configs.push({
-        name: data[elements].name,
-        soil_minimum_values: data[elements].expected_soil_minimum_values,
-        soil_maximum_values: data[elements].expected_soil_maximum_values,
-        environment_minimum_values: data[elements].expected_environment_minimum_values
-        , environment_maximum_values: data[elements].expected_environment_maximum_values
+        name: config.name,
+        soil_minimum_values: config.expected_soil_minimum_values,
+        soil_maximum_values: config.expected_soil_maximum_values,
+        environment_minimum_values: config.expected_environment_minimum_values
+        , environment_maximum_values: config.expected_environment_maximum_values
       });
-
-    }
+    });
   }
   ngOnInit() {
   }
@@ -98,6 +97,5 @@ export class DialogDataEditDialog  implements OnInit {
 
   ngOnInit() {
     this.Existing_data = this.Configdata;
-    console.log(this.Configdata)
   }
 }
