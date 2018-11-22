@@ -33,7 +33,7 @@ export class NavbarComponent implements OnDestroy {
     this.mobileQuery.addListener(this._mobileQueryListener);
   }
 
-  private shouldRun = true;
+  public shouldRun = true;
 
   ngOnDestroy(): void {
     this.mobileQuery.removeListener(this._mobileQueryListener);
