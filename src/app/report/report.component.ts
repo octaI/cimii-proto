@@ -47,12 +47,7 @@ export class ReportComponent implements OnInit {
     {data: [90, 25, 96], label: 'Lechuga'}
   ];
 
-  public radarChartOptions = {
-    responsive: true,
-    scale: {
-      gridLines: {color: '#ffffff'}
-    }
-  };
+
 
   public radarChartType = 'radar';
   constructor() { }
