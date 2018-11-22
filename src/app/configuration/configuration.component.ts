@@ -26,7 +26,7 @@ export class ConfigurationComponent implements OnInit {
   ];
 
   constructor(private dataservice: DataserviceService, public dialog: MatDialog) {
-    const  received_data = this.dataservice.getConfigurations();
+    const  received_data = DataserviceService.getConfigurations();
     this.populateConfigs(received_data);
   }
 

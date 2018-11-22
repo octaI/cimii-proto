@@ -22,8 +22,8 @@ export class SummaryComponent implements OnInit {
   mock_data = require('../../parameter_values.json');
 
   tiles: Tile[] = [
-    {grid_title: 'Suelo', parameter_names: this.dataservice.getParameterSet('Suelo').parameter_names, parameter_values: this.dataservice.getParameterSet('Suelo').parameter_values, cols: 1, rows: 7, color: '#ddcc92'},
-    {grid_title: 'Ambiente', parameter_names: this.dataservice.getParameterSet('Ambiente').parameter_names, parameter_values: this.dataservice.getParameterSet('Ambiente').parameter_values, cols: 1, rows: 4, color: '#ddcc92'},
+    {grid_title: 'Suelo', parameter_names: DataserviceService.getParameterSet('Suelo').parameter_names, parameter_values: DataserviceService.getParameterSet('Suelo').parameter_values, cols: 1, rows: 7, color: '#ddcc92'},
+    {grid_title: 'Ambiente', parameter_names: DataserviceService.getParameterSet('Ambiente').parameter_names, parameter_values: DataserviceService.getParameterSet('Ambiente').parameter_values, cols: 1, rows: 4, color: '#ddcc92'},
   ];
 
   ngOnInit() {

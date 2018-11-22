@@ -63,6 +63,7 @@ import {
     MatBottomSheetModule,
     MatButtonModule,
     MatButtonToggleModule,
+    MatSnackBarModule
   ]
 })
 export class AppMaterialModule {}
