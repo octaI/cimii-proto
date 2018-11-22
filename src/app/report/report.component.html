@@ -5,14 +5,16 @@
     <canvas baseChart
             [datasets]="barChartData"
             [labels]="barChartLabels"
-            [options]="barChartOptions"
+            [options]="barChartOptions1"
             [legend]="barChartLegend"
             [chartType]="barChartType">
     </canvas>
   <canvas baseChart
+          [title]="doughnutChartTitle2"
           [data]="doughnutChartData2"
           [labels]="doughnutChartLabels2"
-          [chartType]="doughnutChartType"></canvas>
+          [chartType]="doughnutChartType"
+          [options]="doughnutChartOptions"></canvas>
   </div>
   <mat-divider></mat-divider>
   <mat-divider></mat-divider>
@@ -20,7 +22,9 @@
     <canvas baseChart
             [data]="doughnutChartData"
             [labels]="doughnutChartLabels"
-            [chartType]="doughnutChartType"></canvas>
+            [chartType]="doughnutChartType"
+            [options]="doughnutChartOptions"
+    ></canvas>
 
 
     <canvas baseChart
@@ -38,7 +42,7 @@
             [datasets]="barChartData2"
             [labels]="barChartLabels2"
             [chartType]="barChartType"
-            [options]="barChartOptions"
+            [options]="barChartOptions2"
     ></canvas>
   </div>
   <div  class="report-graph">

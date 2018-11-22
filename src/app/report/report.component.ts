@@ -6,10 +6,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./report.component.scss']
 })
 export class ReportComponent implements OnInit {
-  public barChartOptions = {
-    scaleShowVerticalLines: false,
+  public barChartOptions1 = {
     responsive: true,
-    scales: {
+    title: {
+      display: true,
+      text: 'Niveles de nutrientes del suelo'
+    }
+  };
+
+  public barChartOptions2 = {
+    responsive: true,
+    title: {
+      display: true,
+      text: 'Niveles de Ambiente'
     }
   };
 
@@ -21,7 +30,7 @@ export class ReportComponent implements OnInit {
   public doughnutChartData2 = [50,30,30];
 
   public barChartLabels = ['pH', 'Potasio', 'Azufre', 'Magnesio', 'Calcio', 'Fosforo', 'Nitrogeno'];
-  public barChartType = 'bar';
+  public barChartType = 'horizontalBar';
   public barChartLegend = true;
 
   public barChartData = [
@@ -38,6 +47,10 @@ export class ReportComponent implements OnInit {
     responsive: true,
     scale: {
       gridLines: {color: '#ffffff'}
+    },
+    title: {
+      display: true,
+      text: 'Niveles de Herbicidas'
     }
   };
 
@@ -47,7 +60,13 @@ export class ReportComponent implements OnInit {
     {data: [90, 25, 96], label: 'Lechuga'}
   ];
 
-
+  public doughnutChartOptions = {
+    responsive: true,
+    title: {
+      display: true,
+      text: 'Niveles de reserva de Nutrientes'
+    }
+  };
 
   public radarChartType = 'radar';
   constructor() { }
