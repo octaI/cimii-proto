@@ -18,11 +18,35 @@
 -->
 
 <mat-grid-list cols="4" rowHeight="100px">
-  <mat-grid-tile class="grid-room pulse" (click)="openDialog()"
+  <mat-grid-tile class="grid-room"
     *ngFor="let room of rooms"
     [colspan]="room.cols"
     [rowspan]="room.rows"
     [style.background]="room.color">
-    {{room.text}}
+    <div class="grid-info">
+      {{room.text}}
+
+      <mat-radio-group [(ngModel)]="room.parametersKey">
+        <mat-radio-button class="example-margin" value="Suelo">
+          Suelo
+        </mat-radio-button>
+        &nbsp;
+        <mat-radio-button class="example-margin" value="Ambiente">
+          Ambiente
+        </mat-radio-button>
+      </mat-radio-group>
+    </div>
+    <div class="chips">
+      <mat-chip-list [hidden]="room.parametersKey === 'Ambiente'">
+        <mat-chip color="primary" *ngFor="let p of room.parameters1" [class.pulse]="p.updated">
+          {{p.name}} {{p.value}}
+        </mat-chip>
+      </mat-chip-list>
+      <mat-chip-list [hidden]="room.parametersKey !== 'Ambiente'">
+        <mat-chip color="primary" *ngFor="let p of room.parameters2" [class.pulse]="p.updated">
+          {{p.name}} {{p.value}}
+        </mat-chip>
+      </mat-chip-list>
+    </div>
   </mat-grid-tile>
 </mat-grid-list>

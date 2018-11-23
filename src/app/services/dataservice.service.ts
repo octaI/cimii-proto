@@ -1,8 +1,13 @@
 import {Injectable, OnInit} from '@angular/core';
 import {Configuration} from '../configuration/configuration.component';
-
+import * as faker from 'faker';
 const mock_data = require('../../parameter_values.json');
 
+export interface ParameterItem {
+  name: string;
+  value: number;
+  updated: boolean;
+}
 
 export class ParameterSet implements OnInit {
   parameter_values: Array<number>;
@@ -40,5 +45,19 @@ export class DataserviceService {
 
   getAlerts(): string[] {
     return this.alerts;
+  }
+
+  getParameters(name: string): ParameterItem[] {
+    const parameters: ParameterItem[] = [];
+    const set = this.getParameterSet(name);
+    set.parameter_names.forEach((parameterName, index) => {
+      const diff = faker.random.number({min: -2, max: 2});
+      parameters.push({
+        name: parameterName,
+        value: set.parameter_values[index] + diff,
+        updated: diff !== 0,
+      });
+    });
+    return parameters;
   }
 }

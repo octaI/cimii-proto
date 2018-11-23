@@ -1,6 +1,8 @@
 {
   "Suelo": {
-    "parameter_names": ["pH", "Potasio",
+    "parameter_names": [
+      "pH",
+      "Potasio",
       "Azufre",
       "Magnesio",
       "Calcio",

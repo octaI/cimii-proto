@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {DataserviceService} from '../services/dataservice.service';
+import {DataserviceService, ParameterItem} from '../services/dataservice.service';
 import {DialogDataExampleDialogComponent} from './summary_dialog/summary_dialog.component';
 import {MatDialog} from '@angular/material';
+import * as faker from 'faker';
 
 export interface Tile {
   color: string;
@@ -17,6 +18,10 @@ export interface Room {
   cols: number;
   rows: number;
   text: string;
+  update: boolean;
+  parameters1: ParameterItem[];
+  parameters2: ParameterItem[];
+  parametersKey: 'Suelo' | 'Ambiente';
 }
 
 @Component({
@@ -27,51 +32,79 @@ export interface Room {
 })
 export class SummaryComponent implements OnInit {
 
-  mock_data = require('../../parameter_values.json');
-
-  tiles: Tile[] = [
+  rooms: Room[] = [
     {
-      grid_title: 'Floor',
-      parameter_names: this.dataService.getParameterSet('Suelo').parameter_names,
-      parameter_values: this.dataService.getParameterSet('Suelo').parameter_values,
-      cols: 1,
-      rows: 7,
-      color: '#ddcc92'
+      parametersKey: 'Suelo',
+      text: 'SECTION 1',
+      cols: 3,
+      rows: 2,
+      color: '#484848',
+      parameters1: this.dataService.getParameters('Suelo'),
+      parameters2: this.dataService.getParameters('Ambiente'),
+      update: false
     },
     {
-      grid_title: 'Ambient',
-      parameter_names: this.dataService.getParameterSet('Ambiente').parameter_names,
-      parameter_values: this.dataService.getParameterSet('Ambiente').parameter_values,
+      parametersKey: 'Suelo',
+      text: 'SECTION 2',
       cols: 1,
       rows: 4,
-      color: '#ddcc92'
+      color: '#484848',
+      parameters1: this.dataService.getParameters('Suelo'),
+      parameters2: this.dataService.getParameters('Ambiente'),
+      update: false
     },
-  ];
-
-  rooms: Room[] = [
-    {text: 'SECTION 1', cols: 3, rows: 2, color: '#484848'},
-    {text: 'SECTION 2', cols: 1, rows: 4, color: '#484848'},
-    {text: 'SECTION 3', cols: 1, rows: 2, color: '#484848'},
-    {text: 'SECTION 4', cols: 2, rows: 2, color: '#484848'},
+    {
+      parametersKey: 'Suelo',
+      text: 'SECTION 3',
+      cols: 1,
+      rows: 2,
+      color: '#484848',
+      parameters1: this.dataService.getParameters('Suelo'),
+      parameters2: this.dataService.getParameters('Ambiente'),
+      update: false
+    },
+    {
+      parametersKey: 'Suelo',
+      text: 'SECTION 4',
+      cols: 2,
+      rows: 2,
+      color: '#484848',
+      parameters1: this.dataService.getParameters('Suelo'),
+      parameters2: this.dataService.getParameters('Ambiente'),
+      update: false
+    },
   ];
 
   constructor(private dataService: DataserviceService, public dialog: MatDialog) {
   }
 
-  openDialog() {
-    this.dialog.open(DialogDataExampleDialogComponent, {
-      data: {
-        grid_title: 'Floor',
-        parameter_names: this.dataService.getParameterSet('Suelo').parameter_names,
-        parameter_values: this.dataService.getParameterSet('Suelo').parameter_values,
-        cols: 1,
-        rows: 7,
-        color: '#ddcc92'
-      }
+  private cleanRoomParameters(room: Room) {
+    room.parameters1.forEach((parameter) => {
+      parameter.updated = false;
+    });
+    room.parameters2.forEach((parameter) => {
+      parameter.updated = false;
     });
   }
 
+  private updateParameters(room: Room) {
+    this.cleanRoomParameters(room);
+    setTimeout(() => {
+      room.parameters1 = this.dataService.getParameters('Suelo');
+      room.parameters2 = this.dataService.getParameters('Ambiente');
+      room.update = true;
+      setTimeout(() => {
+        room.update = false;
+        this.cleanRoomParameters(room);
+        this.updateParameters(room);
+      }, 1500);
+    }, faker.random.number({min: 5000, max: 15000}));
+  }
+
   ngOnInit() {
+    this.rooms.forEach((room) => {
+      this.updateParameters(room);
+    });
   }
 
 }

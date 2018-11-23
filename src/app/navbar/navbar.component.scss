@@ -55,10 +55,21 @@ mat-sidenav-content {
   text-align: center;
 }
 
+.navbar-user > label {
+  margin-left: 10px;
+  @media screen and (max-width: 706px) {
+    display: none;
+  }
+}
+
 .medium-navbar {
   width: 65%;
 }
 
 .example-fill-remaining-space {
   flex: 1 1 auto;
+}
+
+mat-radio-group {
+  margin-left: 5px;
 }
