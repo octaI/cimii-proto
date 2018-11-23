@@ -43,7 +43,7 @@
         </mat-chip>
       </mat-chip-list>
       <mat-chip-list [hidden]="room.parametersKey !== 'Ambiente'">
-        <mat-chip color="primary" *ngFor="let p of room.parameters2" [class.pulse]="p.updated">
+        <mat-chip *ngFor="let p of room.parameters2" [class.pulse]="p.updated" [class.chip-alert]="p.critic">
           {{p.name}} {{p.value}}
         </mat-chip>
       </mat-chip-list>

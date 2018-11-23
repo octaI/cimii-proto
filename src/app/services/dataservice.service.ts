@@ -7,6 +7,7 @@ export interface ParameterItem {
   name: string;
   value: number;
   updated: boolean;
+  critic: boolean;
 }
 
 export class ParameterSet implements OnInit {
@@ -51,11 +52,12 @@ export class DataserviceService {
     const parameters: ParameterItem[] = [];
     const set = this.getParameterSet(name);
     set.parameter_names.forEach((parameterName, index) => {
-      const diff = faker.random.number({min: -2, max: 2});
+      const diff = faker.random.number({min: -2, max: 10});
       parameters.push({
         name: parameterName,
         value: set.parameter_values[index] + diff,
         updated: diff !== 0,
+        critic: diff >= 8,
       });
     });
     return parameters;

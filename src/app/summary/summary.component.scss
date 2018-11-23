@@ -70,6 +70,44 @@ mat-grid-tile:hover {
   }
 }
 
+
+.chip-alert {
+  cursor: pointer;
+  box-shadow: 0 0 0 rgba(204, 15, 43, 0.57);
+  animation: alert 2s infinite;
+  background-color: #ff6471;
+
+}
+.chip-alert:hover {
+  animation: none;
+}
+
+@-webkit-keyframes alert {
+  0% {
+    -webkit-box-shadow: 0 0 0 0 rgba(255,255,255, 0.4);
+  }
+  70% {
+    -webkit-box-shadow: 0 0 0 10px rgba(255,255,255, 0);
+  }
+  100% {
+    -webkit-box-shadow: 0 0 0 0 rgba(255,255,255, 0);
+  }
+}
+@keyframes alert {
+  0% {
+    -moz-box-shadow: 0 0 0 0 rgba(204, 36, 47, 0.4);
+    box-shadow: 0 0 0 0 rgba(204, 45, 68, 0.4);
+  }
+  70% {
+    -moz-box-shadow: 0 0 0 10px rgba(204,169,44, 0);
+    box-shadow: 0 0 0 10px rgba(204,169,44, 0);
+  }
+  100% {
+    -moz-box-shadow: 0 0 0 0 rgba(204,169,44, 0);
+    box-shadow: 0 0 0 0 rgba(204,169,44, 0);
+  }
+}
+
 .grid-info {
   position: absolute;
   top: 0;
