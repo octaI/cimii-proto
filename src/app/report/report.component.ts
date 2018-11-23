@@ -46,7 +46,7 @@ export class ReportComponent implements OnInit {
   public doughnutChartLabels = ['pH', 'Potasio', 'Azufre', 'Magnesio'];
   public doughnutChartData = [100, 50, 10, 10];
   public doughnutChartType = 'doughnut';
-
+  public doughnutChartTitle2 = '';
   public doughnutChartLabels2 = ['Calcio', 'Fosforo', 'Nitrogeno'];
   public doughnutChartData2 = [50, 30, 30];
 
